@@ -35,13 +35,14 @@
       });;
 
     // Initialization for the angular-auth0 library
+    console.log(AUTH0_CALLBACK_URL);
     angularAuth0Provider.init({
       clientID: AUTH0_CLIENT_ID,
       domain: AUTH0_DOMAIN,
       responseType: 'token id_token',
       audience: 'https://' + AUTH0_DOMAIN + '/userinfo',
       redirectUri: AUTH0_CALLBACK_URL,
-      scope: 'openid'
+      scope: 'openid profile gender email email_verified'
     });
 
     $urlRouterProvider.otherwise('/');

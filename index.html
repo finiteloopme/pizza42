@@ -7,6 +7,8 @@
     <!-- Basic style -->
     <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
+    <!-- Angular-PatternFly Styles -->
+    <link rel="stylesheet" href="node_modules/angular-patternfly/dist/styles/angular-patternfly.min.css" />
   </head>
   <body>
     <div ng-app="app">
@@ -30,5 +32,21 @@
     <script type="text/javascript" src="app/home/home.controller.js"></script>
     <script type="text/javascript" src="app/callback/callback.controller.js"></script>
     <script type="text/javascript" src="app/auth/auth.service.js"></script>
+
+<!-- Angular -->
+<script src="node_modules/angular-patternfly/node_modules/angular/angular.min.js"></script>
+
+<!-- Angular-Bootstrap -->
+<script src="node_modules/angular-patternfly/node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+<script src="node_modules/angular-patternfly/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+
+<!-- PatternFly Styles -->
+<!-- Note: No other CSS files are needed regardless of what other JS packages located in patternfly/components that you decide to pull in -->
+<link rel="stylesheet" href="node_modules/angular-patternfly/node_modules/patternfly/dist/css/patternfly.min.css">
+<link rel="stylesheet" href="node_modules/angular-patternfly/node_modules/patternfly/dist/css/patternfly-additions.min.css">
+
+<!-- Patternfly required settings (no jquery or further JS dependencies required by this include) -->
+<script src="node_modules/angular-patternfly/node_modules/patternfly/dist/js/patternfly_settings.min.js"></script>
+
   </body>
 </html>

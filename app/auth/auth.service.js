@@ -35,6 +35,17 @@
       localStorage.setItem('access_token', authResult.accessToken);
       localStorage.setItem('id_token', authResult.idToken);
       localStorage.setItem('expires_at', expiresAt);
+
+      // Check if the user email is verified
+      angularAuth0.client.userInfo(authResult.accessToken, function(err, user) {
+        if (err) {
+          return console.log(err);
+        }
+        else{
+          console.log (JSON.parse(user.email_verified));
+          localStorage.setItem('emailVerified', user.email_verified);
+        }
+      });
     }
     
     function logout() {
@@ -42,6 +53,7 @@
       localStorage.removeItem('access_token');
       localStorage.removeItem('id_token');
       localStorage.removeItem('expires_at');
+      localStorage.removeItem('emailVerified');
       $state.go('home');
     }
     
@@ -52,11 +64,17 @@
       return new Date().getTime() < expiresAt;
     }
 
+    // Verify if the user profile has a _verified_ email
+    function isEmailVerified() {
+        return JSON.parse(localStorage.getItem('emailVerified'));
+    }
+
     return {
       login: login,
       handleAuthentication: handleAuthentication,
       logout: logout,
-      isAuthenticated: isAuthenticated
+      isAuthenticated: isAuthenticated,
+      isEmailVerified: isEmailVerified
     }
   }
 })();
