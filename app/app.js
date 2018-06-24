@@ -41,7 +41,7 @@
       responseType: 'token id_token',
       audience: 'https://' + AUTH0_DOMAIN + '/userinfo',
       redirectUri: AUTH0_CALLBACK_URL,
-      scope: 'openid'
+      scope: 'openid profile gender email email_verified'
     });
 
     $urlRouterProvider.otherwise('/');
