@@ -36,12 +36,13 @@
       localStorage.setItem('id_token', authResult.idToken);
       localStorage.setItem('expires_at', expiresAt);
 
+      localStorage.setItem('emailVerified', false);
       // Check if the user email is verified
       angularAuth0.client.userInfo(authResult.accessToken, function(err, user) {
         if (err) {
           return console.log(err);
         }
-        else{
+        else{          
           console.log (JSON.parse(user.email_verified));
           localStorage.setItem('emailVerified', user.email_verified);
         }
@@ -66,7 +67,8 @@
 
     // Verify if the user profile has a _verified_ email
     function isEmailVerified() {
-        return JSON.parse(localStorage.getItem('emailVerified'));
+      
+        return JSON.parse(localStorage.getItem('emailVerified'))==true;
     }
 
     return {
